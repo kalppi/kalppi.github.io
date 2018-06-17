@@ -6,6 +6,7 @@ baseurl: ""
 url: ""
 excerpt_separator: <!--more-->
 markdown: kramdown
+permalink: pretty
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
@@ -14,10 +15,10 @@ menu:
     url: /
     icon: comment
   - title: Projects
-    url: /projects.html
+    url: /projects
     icon: wrench
   - title: Designs
-    url: /designs.html
+    url: /designs
     icon: pencil
 
 # Exclude from processing.
