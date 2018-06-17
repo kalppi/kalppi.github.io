@@ -3,19 +3,29 @@
 
   {%- include head.html -%}
 
-  <body>
-  	<!--{%- include header.html -%}-->
-  	
+  <body>  	
   	<div class="container-fluid" id="main">
   		<div class="row">
   			<div id="left" class="col-sm-3">
+  				<div id="main-navbar">
+  					<ul>
+  					{% for node in site.menu %}
+  					    {% if page.url == node.url %}
+  					      <li class="active"><a href="{{node.url}}"><span class="glyphicon glyphicon-{{node.icon}}"></span>{{node.title}}</a></li>
+  					    {% else %}
+  					      <li><a href="{{node.url}}"><span class="glyphicon glyphicon-{{node.icon}}"></span>{{node.title}}</a></li>
+  					    {% endif %}
+  					  {% endfor %}
+  					 </ul>
+  				</div>
+  				
   				<div id="portrait"></div>
   				
   				<div id="side">
   				    <h1><a href="/" class="jarnoluu"><strong><span>jarno</span></strong><strong><span>luu</span>kkonen</strong></a></h1>
 
   				    <div id="info">
-						Programming. Sql. Linux. Design. Stuff.
+						{{ site.description }}
   				    </div>
 
   				    <table id="contact">
@@ -32,8 +42,6 @@
   				</div>
   			</div>
   			<div id="middle" class="col-sm-9 col-sm-offset-3">
-			    
-
 			    <main class="page-content" aria-label="Content">
 			      <div class="wrapper">
 			        {{ content }}

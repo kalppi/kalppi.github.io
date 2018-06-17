@@ -170,3 +170,40 @@ h3 {
 		display: block;
 	}
 }
+
+#main-navbar {
+	padding: 0;
+	margin: 0px 0 20px 0;
+	float: right;
+
+	ul {
+		list-style-type: none;
+		padding: 0;
+
+		li {
+			display: inline-block;
+			margin-top: 20px;
+
+			a {
+				background: $base-color;
+				margin-right: 5px;
+				color: lighten($base-color, 40%);
+				text-decoration: none;
+				padding: 5px 10px;
+				text-transform: lowercase;
+
+				span {
+					font-size: 8pt;
+				}
+			}
+
+			&.active a {
+				font-weight: bold;
+				color: white;
+				margin-top: 0;
+				padding: 10px;
+				background: darken($base-color, 20%);
+			}
+		}
+	}
+}
