@@ -66,6 +66,10 @@ body, .container-fluid {
 	text-align: right;
 	display: block;
 
+	&:hover {
+		text-decoration: none;
+	}
+
 	strong {
 		color: $base-color;
 
