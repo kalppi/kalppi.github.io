@@ -167,3 +167,33 @@ But let's see how we can search and process the history data.
     312 03.30
     366 08.00
 {% endhighlight bash %}
+
+## Searches by year
+
+{% highlight bash %}
+> cat search-data | cut -d '|' -f2 | cut -d '.' -f3 | cut -d ' ' -f1 | sort | uniq -c
+>  5298 2013
+   9545 2014
+  11545 2015
+  17074 2016
+  17346 2017
+   8812 2018
+{% endhighlight bash %}
+
+## Searches by month
+
+{% highlight bash %}
+> cat search-data | cut -d '|' -f2 | cut -d '.' -f2 | sort | uniq -c | sort  -k2n
+>  7238 1
+   5244 2
+   6161 3
+   6481 4
+   5504 5
+   3722 6
+   3310 7
+   4456 8
+   5985 9
+   6903 10
+   7212 11
+   7404 12
+{% endhighlight bash %}
