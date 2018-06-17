@@ -64,10 +64,11 @@ body, .container-fluid {
 	@include relative-font-size(2);
 	font-family: "Source Sans Pro","Times New Roman", Times, serif;
 	text-align: right;
-	color: $base-color;
 	display: block;
 
 	strong {
+		color: $base-color;
+
 		&:first-child span {
 			padding: 6px;
 			padding-right: 0;
@@ -78,7 +79,7 @@ body, .container-fluid {
 		}
 
 		span {
-			background: darken($base-color, 30%);
+			background: #267174;
 			color: white;
 		}
 	}
@@ -99,7 +100,7 @@ body, .container-fluid {
 		background: url(/assets/images/scatman.jpeg);
 		clear: both;
 		margin-top: 20px;
-		margin-bottom: 30px;
+		margin-bottom: 20px;
 	}
 }
 
@@ -146,7 +147,7 @@ body, .container-fluid {
 		@include relative-font-size(1.1);
 		font-family: "Source Sans Pro", "Times New Roman", Times, serif;
 		font-style: italic;
-		margin: 20px 10px 10px 0;
+		margin: 10px 10px 10px 0;
 		text-align: right;
 		max-width: 300px;
 		float: right;

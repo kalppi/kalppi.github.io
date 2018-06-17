@@ -36,3 +36,5 @@ Now the returned promise is compared strictly against `true`, and you'll eventua
 {% highlight js %}
 if(await userService.passwordMatches(user, request.password) === true) {
 {% endhighlight %}
+
+This totally didn't happen. Not to me at least.
