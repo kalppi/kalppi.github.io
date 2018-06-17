@@ -15,10 +15,10 @@ menu:
     url: /
     icon: comment
   - title: Projects
-    url: /projects
+    url: /projects/
     icon: wrench
   - title: Designs
-    url: /designs
+    url: /designs/
     icon: pencil
 
 # Exclude from processing.
