@@ -85,6 +85,11 @@ body, .container-fluid {
 	}
 }
 
+.tools {
+	display: block;
+	margin: 5px 0 5px 0;
+}
+
 #left {
 	background: #526B6F url(/assets/images/bg.jpg) right top no-repeat;
 	position: fixed;
