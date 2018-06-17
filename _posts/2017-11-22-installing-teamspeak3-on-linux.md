@@ -83,6 +83,6 @@ Enable service
 Show admin token
 
 {% highlight bash %}
-> sudo bash -c 'cat /usr/local/ts3/logs/*1.log | grep -Po "token=\K(.+)"'
+> sudo sh -c 'cat /usr/local/ts3/logs/*1.log | grep -Po "token=\K(.+)"'
 {% endhighlight %}
 

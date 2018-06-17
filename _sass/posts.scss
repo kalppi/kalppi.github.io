@@ -1,0 +1,76 @@
+.post-meta {
+	.tags {
+		display: block;
+	}
+}
+
+.tags {
+	margin: 10px 0 10px 0;
+}
+
+.post-content, .content {
+	margin-bottom: $spacing-unit;
+
+	p {
+		font-size: $base-font-size;
+	}
+
+	h2 {
+		@include relative-font-size(1.5);
+
+		@include media-query($on-laptop) {
+			@include relative-font-size(1.75);
+		}
+
+		font-weight: bold;
+	}
+
+	h3 {
+		@include relative-font-size(1.625);
+
+		@include media-query($on-laptop) {
+			@include relative-font-size(1.375);
+		}
+	}
+
+	h4 {
+		@include relative-font-size(1.25);
+
+		@include media-query($on-laptop) {
+			@include relative-font-size(1.125);
+		}
+	}
+}
+
+.post-meta {
+	font-size: $small-font-size;
+	color: $grey-color;
+}
+
+.post-link {
+	@include relative-font-size(1.7);
+}
+
+
+.page-content {
+  padding: $spacing-unit 0;
+  flex: 1;
+}
+
+.page-heading {
+	@include relative-font-size(2);
+}
+
+.post-list-heading {
+	@include relative-font-size(1.75);
+}
+
+.post-list {
+	margin-left: 0;
+	list-style: none;
+	padding: 0;
+
+	> li {
+		margin-bottom: $spacing-unit;
+	}
+}

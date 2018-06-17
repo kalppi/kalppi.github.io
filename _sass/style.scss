@@ -1,7 +1,5 @@
 @charset "utf-8";
 
-// Define defaults for each variable.
-
 $base-color: #5DACDD;
 
 $base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
@@ -47,17 +45,26 @@ $on-laptop:        800px !default;
 
 // Import partials.
 @import
-  "minima/base",
-  "minima/layout",
-  "minima/syntax-highlighting"
+  "syntax-highlighting",
+  "posts",
+  "designs",
+  "projects"
 ;
+
+main {
+  display: block;
+}
 
 body, .container-fluid {
 	width: 100%;
 }
 
-.tags {
-	margin: 10px 0 10px 0;
+h3 {
+	margin-top: 10px !important;
+}
+
+.wrapper {
+	padding: 0 20px 0 20px;
 }
 
 .jarnoluu {
@@ -89,11 +96,6 @@ body, .container-fluid {
 	}
 }
 
-.tools {
-	display: block;
-	margin: 5px 0 5px 0;
-}
-
 #left {
 	background: #526B6F url(/assets/images/bg.jpg) right top no-repeat;
 	position: fixed;
@@ -110,72 +112,59 @@ body, .container-fluid {
 		clear: both;
 		margin-bottom: 10px;
 	}
-}
 
-
-#side {
-	float: right;
-	clear: both;
-
-	#contact {
-		width: 100%;
-		border: 0;
-		margin-top: 20px;
-
-		td {
-			text-align: center;
-			padding: 2px 0;
-			border: 0;
-
-			.dummy {
-				display: none;
-			}
-
-			&, a {
-				@include relative-font-size(1.2);
-				color: darken($base-color, 10%);
-				letter-spacing: -0.5px;
-				font-family: "Source Sans Pro";
-			}
-
-			&:first-child {
-				text-align: right;
-				padding-right: 5px;
-			}
-
-			i {
-				@include relative-font-size(1.5);
-				position: relative;
-				top: 2px;
-			}
-		}
-	}
-
-	#info {
-		@include relative-font-size(1.1);
-		font-family: "Source Sans Pro", "Times New Roman", Times, serif;
-		font-style: italic;
-		margin: 10px 10px 10px 0;
-		text-align: right;
-		max-width: 300px;
+	#side {
 		float: right;
-		color: black;
-		//text-shadow: 0px 0px 5px #1B252E;
+		clear: both;
 
-		p {
-			line-height: 1.3;
+		#contact {
+			width: 100%;
+			border: 0;
+			margin-top: 20px;
+
+			td {
+				text-align: center;
+				padding: 2px 0;
+				border: 0;
+
+				.dummy {
+					display: none;
+				}
+
+				&, a {
+					@include relative-font-size(1.2);
+					color: darken($base-color, 10%);
+					letter-spacing: -0.5px;
+					font-family: "Source Sans Pro";
+				}
+
+				&:first-child {
+					text-align: right;
+					padding-right: 5px;
+				}
+
+				i {
+					@include relative-font-size(1.5);
+					position: relative;
+					top: 2px;
+				}
+			}
 		}
-	 }
-}
 
+		#info {
+			@include relative-font-size(1.1);
+			font-family: "Source Sans Pro", "Times New Roman", Times, serif;
+			font-style: italic;
+			margin: 10px 10px 10px 0;
+			text-align: right;
+			max-width: 300px;
+			float: right;
+			color: black;
 
-h3 {
-	margin-top: 10px !important;
-}
-
-.post-meta {
-	.tags {
-		display: block;
+			p {
+				line-height: 1.3;
+			}
+		 }
 	}
 }
 
@@ -216,27 +205,3 @@ h3 {
 	}
 }
 
-#designs {
-	margin-top: 20px;
-
-	.design-row {
-		margin-bottom: 20px;
-	}
-
-	.text {
-		margin: 0px 0 10px 0;
-	}
-
-	.item {
-		display: inline-block;
-		margin: 0 10px 0px 0;
-
-		img {
-			height: 250px;
-		}
-
-		a {
-			
-		}
-	}
-}

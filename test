@@ -1,5 +1,0 @@
-
-#!/bin/bash
-
-/usr/local/ts3/ts3server_startscript.sh start
-
