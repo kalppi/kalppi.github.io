@@ -61,7 +61,8 @@ body, .container-fluid {
 }
 
 .jarnoluu {
-	font: 20pt "Source Sans Pro","Times New Roman", Times, serif;
+	@include relative-font-size(2);
+	font-family: "Source Sans Pro","Times New Roman", Times, serif;
 	text-align: right;
 	color: $base-color;
 	display: block;
@@ -104,6 +105,9 @@ body, .container-fluid {
 
 
 #side {
+	float: right;
+	clear: both;
+
 	#contact {
 		width: 100%;
 		border: 0;
@@ -119,20 +123,19 @@ body, .container-fluid {
 			}
 
 			&, a {
+				@include relative-font-size(1.2);
 				color: darken($base-color, 10%);
-				font-size: 12pt;
 				letter-spacing: -0.5px;
 				font-family: "Source Sans Pro";
 			}
 
 			&:first-child {
 				text-align: right;
-				padding-right: 3px;
+				padding-right: 5px;
 			}
 
 			i {
-				font-size: 18pt;
-				Amargin-left: 5px;
+				@include relative-font-size(1.5);
 				position: relative;
 				top: 2px;
 			}
@@ -140,7 +143,9 @@ body, .container-fluid {
 	}
 
 	#info {
-		font: italic 12pt "Source Sans Pro", "Times New Roman", Times, serif;
+		@include relative-font-size(1.1);
+		font-family: "Source Sans Pro", "Times New Roman", Times, serif;
+		font-style: italic;
 		margin: 20px 10px 10px 0;
 		text-align: right;
 		max-width: 300px;
