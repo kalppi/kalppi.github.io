@@ -16,6 +16,9 @@ menu:
   - title: Projects
     url: /projects.html
     icon: wrench
+  - title: Designs
+    url: /designs.html
+    icon: pencil
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
