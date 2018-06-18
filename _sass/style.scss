@@ -26,6 +26,8 @@ $content-width:    100% !default;
 $on-palm:          600px !default;
 $on-laptop:        800px !default;
 
+$medium-device:	   768px;
+
 // Use media queries like this:
 // @include media-query($on-palm) {
 //   .wrapper {
@@ -40,7 +42,11 @@ $on-laptop:        800px !default;
 }
 
 @mixin relative-font-size($ratio) {
-  font-size: $base-font-size * $ratio;
+	font-size: $base-font-size * $ratio;
+}
+
+@mixin relative-font-size-important($ratio) {
+	font-size: $base-font-size * $ratio !important;
 }
 
 // Import partials.
@@ -50,6 +56,88 @@ $on-laptop:        800px !default;
   "designs",
   "projects"
 ;
+
+@include media-query($medium-device) {
+	#left-content {
+		abackground-color: white !important;
+		width: 300px;
+		margin: auto;
+
+		#main-navbar {
+			margin: auto;
+			float: none;
+			width: 200px;
+		}
+
+		#portrait {
+			float: none;
+			margin: 15px auto 10px auto;
+		}
+
+		.jarnoluu {
+			text-align: center;
+		}
+
+		#info {
+			text-align: center !important;
+		}
+	}
+
+	#left {
+		position: static !important;
+		min-height: auto !important;
+		padding-bottom: 20px;
+	}
+
+	#middle {
+		.page-content {
+			padding-top: 10px;
+		}
+	}
+}
+
+@include media-query(1000px) {
+	.jarnoluu {
+		strong {
+			@include relative-font-size(1.5);
+		}
+	}
+
+	#portrait {
+		width: 120px !important;
+		height: 120px !important;
+		background-position: -15px -7px !important;
+	}
+
+	#side {
+		#contact {
+			td {
+				&, a {
+					@include relative-font-size-important(1);
+				}
+
+				i {
+					@include relative-font-size-important(1.2);
+				}
+			}
+		}
+	}
+
+	#main-navbar {
+		ul {
+			li {
+				a {
+					@include relative-font-size-important(0.8);
+				}
+			}
+		}
+	}
+}
+
+video {
+	width: 100%;
+	max-width: 640px;
+}
 
 main {
   display: block;
@@ -101,71 +189,71 @@ h3 {
 	position: fixed;
 	min-height: 2000px;
 	border-top: 5px solid #526B6F;
+}
 
-	#portrait {
-		width: 150px;
-		height: 150px;
-		background: white;
-		float: right;
-		border-radius: 50%;
-		background: url(/assets/images/me.png);
-		clear: both;
-		margin-bottom: 10px;
-	}
+#portrait {
+	width: 150px;
+	height: 150px;
+	background: white;
+	float: right;
+	border-radius: 50%;
+	background: url(/assets/images/me.png);
+	clear: both;
+	margin-bottom: 20px;
+}
 
-	#side {
-		float: right;
-		clear: both;
+#side {
+	float: right;
+	clear: both;
 
-		#contact {
-			width: 100%;
+	#contact {
+		width: 100%;
+		border: 0;
+		margin-top: 20px;
+
+		td {
+			text-align: center;
+			padding: 2px 0;
 			border: 0;
-			margin-top: 20px;
 
-			td {
-				text-align: center;
-				padding: 2px 0;
-				border: 0;
+			.dummy {
+				display: none;
+			}
 
-				.dummy {
-					display: none;
-				}
+			&, a {
+				@include relative-font-size(1.2);
+				color: darken($base-color, 10%);
+				letter-spacing: -0.5px;
+				font-family: "Source Sans Pro";
+			}
 
-				&, a {
-					@include relative-font-size(1.2);
-					color: darken($base-color, 10%);
-					letter-spacing: -0.5px;
-					font-family: "Source Sans Pro";
-				}
+			&:first-child {
+				text-align: right;
+				padding-right: 5px;
+			}
 
-				&:first-child {
-					text-align: right;
-					padding-right: 5px;
-				}
-
-				i {
-					@include relative-font-size(1.5);
-					position: relative;
-					top: 2px;
-				}
+			i {
+				@include relative-font-size(1.5);
+				position: relative;
+				top: 2px;
 			}
 		}
-
-		#info {
-			@include relative-font-size(1.1);
-			font-family: "Source Sans Pro", "Times New Roman", Times, serif;
-			font-style: italic;
-			margin: 10px 10px 10px 0;
-			text-align: right;
-			max-width: 300px;
-			float: right;
-			color: black;
-
-			p {
-				line-height: 1.3;
-			}
-		 }
 	}
+
+	#info {
+		@include relative-font-size(1.1);
+		font-family: "Source Sans Pro", "Times New Roman", Times, serif;
+		font-style: italic;
+		margin: 10px 10px 10px 0;
+		text-align: right;
+		max-width: 300px;
+		float: right;
+		color: black;
+
+		p {
+			line-height: 1.3;
+		}
+	 }
 }
 
 #main-navbar {
@@ -176,12 +264,14 @@ h3 {
 	ul {
 		list-style-type: none;
 		padding: 0;
+		margin: 5px 0 0 0;
 
 		li {
 			display: inline-block;
-			margin-top: 20px;
+			margin-top: 10px;
 
 			a {
+				@include relative-font-size(1);
 				background: $base-color;
 				margin-right: 5px;
 				color: lighten($base-color, 40%);

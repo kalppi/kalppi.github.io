@@ -6,42 +6,44 @@
   <body>  	
   	<div class="container-fluid" id="main">
   		<div class="row">
-  			<div id="left" class="col-sm-3">
-  				<div id="main-navbar">
-  					<ul>
-  					{% for node in site.menu %}
-  					    {% if page.url == node.url %}
-  					      <li class="active"><a href="{{node.url}}"><span class="glyphicon glyphicon-{{node.icon}}"></span> {{node.title}}</a></li>
-  					    {% else %}
-  					      <li><a href="{{node.url}}"><span class="glyphicon glyphicon-{{node.icon}}"></span> {{node.title}}</a></li>
-  					    {% endif %}
-  					  {% endfor %}
-  					 </ul>
-  				</div>
-  				
-  				<div id="portrait"></div>
-  				
-  				<div id="side">
-  				    <h1><a href="/" class="jarnoluu"><strong><span>jarno</span></strong><strong><span>luu</span>kkonen</strong></a></h1>
+  			<div id="left" class="col-md-3">
+  				<div id="left-content">
+	  				<div id="main-navbar">
+	  					<ul>
+	  					{% for node in site.menu %}
+	  					    {% if page.url == node.url %}
+	  					      <li class="active"><a href="{{node.url}}"><span class="glyphicon glyphicon-{{node.icon}}"></span> {{node.title}}</a></li>
+	  					    {% else %}
+	  					      <li><a href="{{node.url}}"><span class="glyphicon glyphicon-{{node.icon}}"></span> {{node.title}}</a></li>
+	  					    {% endif %}
+	  					  {% endfor %}
+	  					 </ul>
+	  				</div>
+	  				
+	  				<div id="portrait"></div>
+	  				
+	  				<div id="side">
+	  				    <h1><a href="/" class="jarnoluu"><strong><span>jarno</span></strong><strong><span>luu</span>kkonen</strong></a></h1>
 
-  				    <div id="info">
-						{{ site.description }}
-  				    </div>
+	  				    <div id="info">
+							{{ site.description }}
+	  				    </div>
 
-  				    <table id="contact">
-  				        <tr>
-  				            <td>Helsinki, Finland</td><td><i class="fa fa-map-marker" aria-hidden="true"></i></td>
-  				        </tr>
-  				        <tr>
-  				            <td>luukkonen.<span>jarno</span><span class="dummy">.petteri</span>@g<span class="dummy">reat</span>mail<span class="dummy">inator</span>.com</td><td><i class="fa fa-envelope" aria-hidden="true"></i></td>
-  				        </tr>
-  				        <tr>
-  				            <td><a href="https://github.com/kalppi">kalppi</a></td><td><a href="https://github.com/kalppi"><i class="fa fa-github" aria-hidden="true"></i></a></td>
-  				        </tr>
-  				    </table>
-  				</div>
+	  				    <table id="contact">
+	  				        <tr>
+	  				            <td>Helsinki, Finland</td><td><i class="fa fa-map-marker" aria-hidden="true"></i></td>
+	  				        </tr>
+	  				        <tr>
+	  				            <td>luukkonen.<span>jarno</span><span class="dummy">.petteri</span>@g<span class="dummy">reat</span>mail<span class="dummy">inator</span>.com</td><td><i class="fa fa-envelope" aria-hidden="true"></i></td>
+	  				        </tr>
+	  				        <tr>
+	  				            <td><a href="https://github.com/kalppi">kalppi</a></td><td><a href="https://github.com/kalppi"><i class="fa fa-github" aria-hidden="true"></i></a></td>
+	  				        </tr>
+	  				    </table>
+	  				</div>
+	  			</div>
   			</div>
-  			<div id="middle" class="col-sm-9 col-sm-offset-3">
+  			<div id="middle" class="col-md-9 offset-md-3">
 			    <main class="page-content" aria-label="Content">
 			      <div class="wrapper">
 			        {{ content }}
