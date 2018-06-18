@@ -2,24 +2,30 @@
 layout: default
 ---
 
-<a href="/">&laquo; back</a>
+<div class="home container-fluid">
+	<div class="row">
+		<div class="col-md-12" id="content">
+			<a href="/">&laquo; back</a>
 
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-	<header class="post-header">
-		<h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-		<p class="post-meta">
-			<time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-				{{ page.date | date: site.date_format }}
-			</time>
+			<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+				<header class="post-header">
+					<h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+					<p class="post-meta">
+						<time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+							{{ page.date | date: site.date_format }}
+						</time>
 
-			<span class="tags">
-				Tag{% if page.tags.size > 1 %}s{% endif %}: {{ page.tags | sort | join: ', '  }}
-			</span>
-		</p>
-	</header>
+						<span class="tags">
+							Tag{% if page.tags.size > 1 %}s{% endif %}: {{ page.tags | sort | join: ', '  }}
+						</span>
+					</p>
+				</header>
 
-	<div class="post-content e-content" itemprop="articleBody">
-		{{ content }}
+				<div class="post-content e-content" itemprop="articleBody">
+					{{ content }}
+				</div>
+				<a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+			</article>
+		</div>
 	</div>
-	<a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
-</article>
+</div>

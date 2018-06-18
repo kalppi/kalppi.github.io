@@ -3,7 +3,7 @@ layout: default
 title: Blog
 ---
 
-<div class="home container">
+<div class="home container-fluid">
 	<div class="row">
 		<div class="col-md-9" id="content">
 			{{ content }}
@@ -25,7 +25,6 @@ title: Blog
 								Tag{% if post.tags.size > 1 %}s{% endif %}: {{ post.tags | sort | join: ', '  }}
 							</span>
 						</span>
-
 
 						<div class="post-content">
 							{{ post.excerpt }}
