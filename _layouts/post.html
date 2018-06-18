@@ -2,6 +2,14 @@
 layout: default
 ---
 
+{% if content contains site.content_separator %}
+	{% assign contentSplitted = content | split: site.content_separator %}
+	{% assign myContent = contentSplitted | first %}
+	{% assign side = contentSplitted | last %}
+{% else %}
+	{% assign myContent = content %}
+{% endif %}
+
 <div class="home container-fluid">
 	<div class="row">
 		<div class="col-md-12" id="content">
@@ -10,19 +18,31 @@ layout: default
 			<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 				<header class="post-header">
 					<h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-					<p class="post-meta">
-						<time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-							{{ page.date | date: site.date_format }}
-						</time>
-
-						<span class="tags">
-							Tag{% if page.tags.size > 1 %}s{% endif %}: {{ page.tags | sort | join: ', '  }}
-						</span>
-					</p>
 				</header>
 
 				<div class="post-content e-content" itemprop="articleBody">
-					{{ content }}
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-{% if side %}9{% else %}12{% endif %}" style="padding: 0">
+								<p class="post-meta">
+									<time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+										{{ page.date | date: site.date_format }}
+									</time>
+
+									<span class="tags">
+										Tag{% if page.tags.size > 1 %}s{% endif %}: {{ page.tags | sort | join: ', '  }}
+									</span>
+								</p>
+								
+								{{ myContent }}
+							</div>
+							{% if side %}
+							<div class="col-md-3 side">
+								{{ side }}
+							</div>
+							{% endif %}
+						</div>
+					</div>					
 				</div>
 				<a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 			</article>

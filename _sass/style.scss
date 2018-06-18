@@ -54,120 +54,9 @@ $medium-device:	   768px;
   "syntax-highlighting",
   "posts",
   "designs",
-  "projects"
+  "projects",
+  "responsive"
 ;
-
-@include media-query($medium-device) {
-	#left-content {
-		width: 300px;
-		margin: auto;
-
-		#main-navbar {
-			margin: auto;
-			float: none;
-			width: 200px;
-		}
-
-		#portrait {
-			float: none;
-			margin: 15px auto 10px auto;
-		}
-
-		.jarnoluu {
-			text-align: center;
-		}
-
-		#info {
-			text-align: center !important;
-		}
-	}
-
-	#content {
-		order: 2;
-	}
-
-	#index {
-		order: 1;
-		margin-bottom: 20px;
-	}
-
-	#left {
-		position: static !important;
-		min-height: auto !important;
-		padding-bottom: 20px;
-	}
-
-	#middle {
-		.page-content {
-			padding-top: 10px;
-		}
-	}
-}
-
-
-@include media-query(1100px) {
-	.jarnoluu {
-		strong {
-			@include relative-font-size-important(1.5);
-		}
-	}
-
-	#portrait {
-		width: 120px !important;
-		height: 120px !important;
-		background-position: -15px -7px !important;
-	}
-
-	#side {
-		#contact {
-			td {
-				&, a {
-					@include relative-font-size-important(1);
-				}
-
-				i {
-					@include relative-font-size-important(1.2);
-				}
-			}
-		}
-	}
-
-	#main-navbar {
-		ul {
-			li {
-				a {
-					@include relative-font-size-important(0.8);
-				}
-			}
-		}
-	}
-}
-
-@include media-query(900px) {
-	.jarnoluu {
-		strong {
-			@include relative-font-size-important(1.2);
-		}
-	}
-
-	#info {
-		@include relative-font-size-important(1);
-	}
-
-	#side {
-		#contact {
-			td {
-				&, a {
-					@include relative-font-size-important(0.9);
-				}
-
-				i {
-					@include relative-font-size-important(1);
-				}
-			}
-		}
-	}
-}
 
 video {
 	width: 100%;
@@ -183,9 +72,9 @@ body, .container-fluid {
 }
 
 h1 {
-	margin-bottom: 20px !important;
-	font-family: "Crete Round" !important;
-	color: darken($base-color, 25%) !important;
+	margin-bottom: 20px;
+	font-family: "Crete Round";
+	color: darken($base-color, 25%);
 	border-bottom: 2px solid darken($base-color, 25%);
 	padding-bottom: 5px;
 }
@@ -199,7 +88,7 @@ h3 {
 }
 
 .jarnoluu {
-	border: 0 !important;
+	border: 0;
 
 	&:hover {
 		text-decoration: none;
