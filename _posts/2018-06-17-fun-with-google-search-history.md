@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Fun with Google search history"
+title:  "Fun with Google search history (and bash + awk)"
 date:   2018-06-17 13:32:12 +0300
-tags: [google, history, bash]
+tags: [google, history, bash, awk]
 ---
 
 Years ago Google used to provide interesting information about your own search history (assuming you are logged into Google when googling). For example, you could see how many searches you've made and what are the top sites your searches lead you to. But then they updated their activity page for the worse.
@@ -34,6 +34,8 @@ But let's see how we can search and process the history data.
 > cat search-data | wc -l
 > 69623
 {% endhighlight %}
+
+Yes... I like to google alot.
 
 ## Top 10 searches
 
@@ -137,7 +139,7 @@ But let's see how we can search and process the history data.
 ## Top 10 word trios 
 
 {% highlight bash %}
-> cat search-data | cut -d '|' -f1 | awk '{print $0 "\n#"}'| grep -oP '[[:alpha:]\-#]*' | awk 'NR>2{print s " " l " " $0}{s=l}{l=$1}' | sort| sed 's/\# //g' | sed 's/ \#//g'| awk 'NF==3'| uniq -c| sort -nr | head
+> cat search-data | cut -d '|' -f1 | awk '{print $0 "\n#"}'| grep -oP '[[:alpha:]\-#]*' | awk 'NR>2{print s " " l " " $0}{s=l}{l=$1}' | sort | sed 's/\# //g' | sed 's/ \#//g'| awk 'NF==3' | uniq -c| sort -nr | head
 >   159 lbs to kg
     154 path of exile
      58 poe how much
@@ -212,4 +214,22 @@ But let's see how we can search and process the history data.
    6903 10
    7212 11
    7404 12
+{% endhighlight bash %}
+
+## Searches by month as percents
+
+{% highlight bash %}
+> cat search-data | cut -d '|' -f2 | cut -d '.' -f2 | sort | uniq -c | sort  -k2n  | awk 'BEGIN {t=0} {v[NR]=$1;t+=$1} END {for(i=1;i<=NR;i++) {printf("%s %.1f%\n", i,  (v[i] / t)*100)}}'
+>  1 10.4%
+   2 7.5%
+   3 8.8%
+   4 9.3%
+   5 7.9%
+   6 5.3%
+   7 4.8%
+   8 6.4%
+   9 8.6%
+   10 9.9%
+   11 10.4%
+   12 10.6%
 {% endhighlight bash %}
