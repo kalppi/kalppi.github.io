@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Dangers of JavaScript's type-converting comparisons e.g. why you should always use strict comparison (===)"
+title:  "Dangers of JavaScript's type-converting comparisons i.e. why you should always use strict comparison (===)"
 date:   2018-03-16 13:32:12 +0300
 tags: [DANGER DANGER, javascript, design choises, security]
 ---

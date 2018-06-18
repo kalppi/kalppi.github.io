@@ -83,6 +83,15 @@ $medium-device:	   768px;
 		}
 	}
 
+	#content {
+		order: 2;
+	}
+
+	#index {
+		order: 1;
+		margin-bottom: 20px;
+	}
+
 	#left {
 		position: static !important;
 		min-height: auto !important;
