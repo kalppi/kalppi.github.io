@@ -1,0 +1,31 @@
+<h2>GPS Visualizer</h2>
+
+<small class="tools">Tools: Javascript</small>
+
+<p>Visualizes gps data, and tries to parse coordinates and times into separate journeys.</p>
+
+<h3 id="gps-title" style="font-size: 12pt"></h3>
+
+ <div id="gps-left">
+	<div id="gps-date"></div>
+	<div id="gps-slider"></div>
+	<div id="gps-map"></div>
+</div>
+<div id="gps-right">
+	<ul id="gps-routes"></ul>
+</div>
+
+<script type="text/javascript">
+	function init() {
+		const vis = new Visualizer(document.getElementById('gps-map'), {
+			path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+			scale: 4
+		});
+
+		vis.loadRoutes('/assets/gps-visualizer/data/WENNO-2017-07.routes').then(() => {
+			vis.fitBounds();
+		});
+	};
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkguVMQMKO-Eg3N-tIkNcCgD21uI7lRHM&v=3&callback=init"></script>

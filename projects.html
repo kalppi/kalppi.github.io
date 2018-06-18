@@ -1,70 +1,27 @@
 ---
 layout: default
-title: Projects
 ---
 
-<div class="home container-fluid">
+<div class="container-fluid" id="projects">
 	<div class="row">
 		<div class="col-md-12">
 			<h1>Projects</h1>
 
 			<div class="content">
-				<div class="project">
-					<h2>"Friends say it better"</h2>
-
-					<p>When you just can't find the right gif from the internet...</p>
-
-					<a href="https://github.com/kalppi/friends-text"><i class="fa fa-github" aria-hidden="true"></i> Github</a>
-					<small class="tools">Tools: Javascript/Node, React, ffmpeg</small>
-
-					<div>
-						<video controls autoplay loop>
-							<source src="/assets/videos/friends.mp4" type="video/mp4">
-						</video>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-6">
+							{% include_relative projects/friends.html %}
+						</div>
+						<div class="col-lg-6">
+							{% include_relative projects/shapejs.html %}
+						</div>
 					</div>
-				</div>
-				<div class="project">
-					<h2>Shape.js</h2>
-
-					<p>Shape.js is a library that helps you define what members and data types, the "shape", your objects are supposed to have, and then use that information in your unit tests. Useful when designing an api.</p>
-
-					<a href="https://github.com/kalppi/shape.js"><i class="fa fa-github" aria-hidden="true"></i> Github</a>
-					<small class="tools">Tools: Javascript</small>
-
-					<img src="/assets/images/shapejs.png" />
-				</div>
-				<div class="project">
-					<h2>GPS Visualizer</h2>
-
-					<p>Visualizes gps data, and tries to parse coordinates and times into separate journeys.</p>
-
-					<small class="tools">Tools: Javascript</small>
-
-					<h3 id="gps-title" style="font-size: 12pt"></h3>
-
-					 <div id="gps-left">
-						<div id="gps-date"></div>
-						<div id="gps-slider"></div>
-						<div id="gps-map"></div>
+					<div class="row">
+						<div class="col-md-6">
+							{% include_relative projects/gps.html %}
+						</div>
 					</div>
-					<div id="gps-right">
-						<ul id="gps-routes"></ul>
-				 	</div>
-
-				 	<script type="text/javascript">
-				 		function init() {
-				 			const vis = new Visualizer(document.getElementById('gps-map'), {
-				 				path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-				 				scale: 4
-				 			});
-
-				 			vis.loadRoutes('/assets/gps-visualizer/data/WENNO-2017-07.routes').then(() => {
-				 				vis.fitBounds();
-				 			});
-				 		};
-				 	</script>
-
-				 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkguVMQMKO-Eg3N-tIkNcCgD21uI7lRHM&v=3&callback=init"></script>
 				</div>
 			</div>
 		</div>
