@@ -53,6 +53,22 @@ Yes... I like to google alot.
     22 poe poison
 {% endhighlight %}
 
+## Top 10 searches, excluding everything poe related
+
+{% highlight bash %}
+> cat search-data | cut -d '|' -f1 | grep -v 'poe' | sort | uniq -c | sort -rn | head
+>   84 sää
+    28 a
+    23 google jquery
+    22 maps
+    19 node canvas
+    18 drive
+    17 00560
+    16 bootstrap
+    16 asd
+    15 gulp
+{% endhighlight %}
+
 ## Top 10 sites
 
 {% highlight bash %}
