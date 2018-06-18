@@ -59,7 +59,6 @@ $medium-device:	   768px;
 
 @include media-query($medium-device) {
 	#left-content {
-		abackground-color: white !important;
 		width: 300px;
 		margin: auto;
 

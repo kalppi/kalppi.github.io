@@ -41,64 +41,64 @@ Yes... I like to google alot.
 
 {% highlight bash %}
 > cat search-data | cut -d '|' -f1 | sort | uniq -c | sort -rn | head
->   92 poe unique
-    92 poe affix
-    84 sää
-    35 poe aura
-    28 poe unique jewel
-    28 a
-    25 poe jewel
-    23 poe unique flask
-    23 google jquery
-    22 poe poison
+> 92 poe unique
+  92 poe affix
+  84 sää
+  35 poe aura
+   28 poe unique jewel
+   28 a
+   25 poe jewel
+   23 poe unique flask
+   23 google jquery
+   22 poe poison
 {% endhighlight %}
 
 ## Top 10 searches, excluding everything poe related
 
 {% highlight bash %}
 > cat search-data | cut -d '|' -f1 | grep -v 'poe' | sort | uniq -c | sort -rn | head
->   84 sää
-    28 a
-    23 google jquery
-    22 maps
-    19 node canvas
-    18 drive
-    17 00560
-    16 bootstrap
-    16 asd
-    15 gulp
+> 84 sää
+  28 a
+  23 google jquery
+  22 maps
+  19 node canvas
+  18 drive
+  17 00560
+  16 bootstrap
+  16 asd
+  15 gulp
 {% endhighlight %}
 
 ## Top 10 sites
 
 {% highlight bash %}
 > cat url-data |  grep -Poi 'https?://(www\.)?(fi\.|en\.)?(m\.)?\K([^/]+)' | sort | uniq -c | sort -nr | head
->  7036 stackoverflow.com
-   5173 pathofexile.gamepedia.com
-   3246 wikipedia.org
-   2751 reddit.com
-   1590 github.com
-   1581 pathofexile.com
-   1544 imdb.com
-    849 warframe.wikia.com
-    741 leagueoflegends.wikia.com
-    725 gamefaqs.com
+> 7036 stackoverflow.com
+  5173 pathofexile.gamepedia.com
+  3246 wikipedia.org
+  2751 reddit.com
+  1590 github.com
+  1581 pathofexile.com
+  1544 imdb.com
+   849 warframe.wikia.com
+   741 leagueoflegends.wikia.com
+   725 gamefaqs.com
 {% endhighlight %}
 
 ## Top 10 search words, 3 characters or more
 
 {% highlight bash %}
 > cat search-data | cut -d '|' -f1 | grep -o '[[:alpha:]]*' | awk 'length($0)>=3' | sort | uniq -c | sort -nr | head
->  6546 poe
-   1297 node
-   1137 java
-    998 the
-    785 lol
-    768 not
-    709 warframe
-    699 how
-    494 google
-    487 react
+> 6546 poe
+  1297 node
+  1137 java
+   998 the
+   785 lol
+   768 not
+   709 warframe
+   699 how
+   494 google
+   487 react
 {% endhighlight bash %}
 
 
@@ -106,32 +106,32 @@ Yes... I like to google alot.
 
 {% highlight bash %}
 > file=$(mktemp);wget -q https://raw.githubusercontent.com/Alir3z4/stop-words/master/english.txt -O $file && cat search-data | cut -d '|' -f1 | grep -o '[[:alpha:]\-]*'| grep -v -x -f "$file" | awk 'length($0)>=3' | sort | uniq -c | sort -nr | head
->  6546 poe
-   1249 node
-   1137 java
-    785 lol
-    709 warframe
-    491 google
-    462 react
-    445 jquery
-    422 terraria
-    386 canvas
+> 6546 poe
+  1249 node
+  1137 java
+   785 lol
+   709 warframe
+   491 google
+   462 react
+   445 jquery
+   422 terraria
+   386 canvas
 {% endhighlight bash %}
 
 ## Top 10 search words, 10 characters or more
 
 {% highlight bash %}
 > cat search-data | cut -d '|' -f1 | grep -o '[[:alpha:]]*' | awk 'length($0)>=10' | sort | uniq -c | sort -nr | head
->   376 javascript
-    356 stackoverflow
-    223 pakkotoisto
-    205 borderlands
-     80 postgresql
-     78 browserify
-     71 handlebars
-     60 calculator
-     57 controller
-     56 opiskelija
+> 376 javascript
+  356 stackoverflow
+  223 pakkotoisto
+  205 borderlands
+   80 postgresql
+   78 browserify
+   71 handlebars
+   60 calculator
+   57 controller
+   56 opiskelija
 {% endhighlight bash %}
 
 
@@ -139,16 +139,16 @@ Yes... I like to google alot.
 
 {% highlight bash %}
 > file=$(mktemp);wget -q https://raw.githubusercontent.com/Alir3z4/stop-words/master/english.txt -O $file && cat search-data | cut -d '|' -f1 | grep -o '[[:alpha:]\-]*' | grep -v -x -f "$file" | awk 'NR>1{print l " " $0}{l=$1}' | sort | uniq -c | sort -nr | head
->   307 poe unique
-    173 react native
-    162 java spring
-    160 lbs kg
-    154 path exile
-    153 helsingin yliopisto
-    143 google maps
-    112 socket io
-     99 new vegas
-     94 poe affix
+> 307 poe unique
+  173 react native
+  162 java spring
+  160 lbs kg
+  154 path exile
+  153 helsingin yliopisto
+  143 google maps
+  112 socket io
+   99 new vegas
+   94 poe affix
 
 {% endhighlight bash %}
 
@@ -156,16 +156,16 @@ Yes... I like to google alot.
 
 {% highlight bash %}
 > cat search-data | cut -d '|' -f1 | awk '{print $0 "\n#"}'| grep -oP '[[:alpha:]\-#]*' | awk 'NR>2{print s " " l " " $0}{s=l}{l=$1}' | sort | sed 's/\# //g' | sed 's/ \#//g'| awk 'NF==3' | uniq -c| sort -nr | head
->   159 lbs to kg
-    154 path of exile
-     58 poe how much
-     44 how to get
-     40 fallout new vegas
-     38 battle angel alita
-     32 pounds to eur
-     32 google maps api
-     30 dollars to eur
-     28 poe unique jewel
+> 159 lbs to kg
+  154 path of exile
+   58 poe how much
+   44 how to get
+   40 fallout new vegas
+   38 battle angel alita
+   32 pounds to eur
+   32 google maps api
+   30 dollars to eur
+   28 poe unique jewel
 
 {% endhighlight bash %}
 
@@ -173,16 +173,16 @@ Yes... I like to google alot.
 
 {% highlight bash %}
 > cat search-data | cut -d '|' -f2 | sed -r 's/([0-9]+)\.([0-9]+)\.([0-9]+) ([0-9]+)\.([0-9]+)\.([0-9]+)/\4-\5/g' | awk '{split($0, d, "-");hour=d[1];min=int((d[2]/30) + 0.5)*30; if(min==60) { hour++; min=0 };  printf("%02d.%02d\n", hour, min)}' | sort | uniq -c  | sort -nr | head
->   2568 15.30
-    2464 14.30
-    2461 16.00
-    2460 19.00
-    2448 14.00
-    2406 13.00
-    2399 20.30
-    2391 13.30
-    2379 18.30
-    2357 12.30
+> 2568 15.30
+  2464 14.30
+  2461 16.00
+  2460 19.00
+  2448 14.00
+  2406 13.00
+  2399 20.30
+  2391 13.30
+  2379 18.30
+  2357 12.30
 {% endhighlight bash %}
 
 
@@ -190,16 +190,32 @@ Yes... I like to google alot.
 
 {% highlight bash %}
 > cat search-data | cut -d '|' -f2 | sed -r 's/([0-9]+)\.([0-9]+)\.([0-9]+) ([0-9]+)\.([0-9]+)\.([0-9]+)/\4-\5/g' | awk '{split($0, d, "-");hour=d[1];min=int((d[2]/30) + 0.5)*30; if(min==60) { hour++; min=0 };  printf("%02d.%02d\n", hour, min)}' | sort | uniq -c  | sort -n | head
->   117 05.00
-    118 05.30
-    127 06.30
-    146 06.00
-    175 07.00
-    205 04.00
-    216 04.30
-    287 07.30
-    312 03.30
-    366 08.00
+> 117 05.00
+  118 05.30
+  127 06.30
+  146 06.00
+  175 07.00
+  205 04.00
+  216 04.30
+  287 07.30
+  312 03.30
+  366 08.00
+{% endhighlight bash %}
+
+## Top 10 days with most searches
+
+{% highlight bash %}
+> cat search-data | cut -d '|' -f2 | cut -d ' ' -f1 | sort | uniq -c | sort -nr | head
+> 289 20.1.2018
+  276 12.3.2018
+  224 25.10.2014
+  223 27.9.2016
+  215 20.10.2016
+  212 12.1.2014
+  194 9.12.2017
+  194 10.9.2016
+  184 26.4.2015
+  183 14.1.2014
 {% endhighlight bash %}
 
 ## Searches by year
@@ -218,34 +234,34 @@ Yes... I like to google alot.
 
 {% highlight bash %}
 > cat search-data | cut -d '|' -f2 | cut -d '.' -f2 | sort | uniq -c | sort  -k2n
->  7238 1
-   5244 2
-   6161 3
-   6481 4
-   5504 5
-   3722 6
-   3310 7
-   4456 8
-   5985 9
-   6903 10
-   7212 11
-   7404 12
+> 7238 1
+  5244 2
+  6161 3
+  6481 4
+  5504 5
+  3722 6
+  3310 7
+  4456 8
+  5985 9
+  6903 10
+  7212 11
+  7404 12
 {% endhighlight bash %}
 
 ## Searches by month as percents
 
 {% highlight bash %}
 > cat search-data | cut -d '|' -f2 | cut -d '.' -f2 | sort | uniq -c | sort  -k2n  | awk 'BEGIN {t=0} {v[NR]=$1;t+=$1} END {for(i=1;i<=NR;i++) {printf("%s %.1f%\n", i,  (v[i] / t)*100)}}'
->  1 10.4%
-   2 7.5%
-   3 8.8%
-   4 9.3%
-   5 7.9%
-   6 5.3%
-   7 4.8%
-   8 6.4%
-   9 8.6%
-   10 9.9%
-   11 10.4%
-   12 10.6%
+> 1 10.4%
+  2 7.5%
+  3 8.8%
+  4 9.3%
+  5 7.9%
+  6 5.3%
+  7 4.8%
+  8 6.4%
+  9 8.6%
+  10 9.9%
+  11 10.4%
+  12 10.6%
 {% endhighlight bash %}
