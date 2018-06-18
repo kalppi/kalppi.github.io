@@ -148,7 +148,7 @@ body, .container-fluid {
 }
 
 h3 {
-	margin-top: 10px !important;
+	margin-top: 10px;
 }
 
 .wrapper {
@@ -295,3 +295,25 @@ h3 {
 	}
 }
 
+#index {
+	apadding: 0;
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+
+		li {
+			margin-bottom: 10px;
+
+			h3 {
+				@include relative-font-size(1);
+				margin: 0;
+
+				a {
+					@include relative-font-size(1);
+				}
+			}
+		}
+	}
+}

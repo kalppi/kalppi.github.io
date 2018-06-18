@@ -20,6 +20,7 @@ menu:
   - title: Designs
     url: /designs/
     icon: pencil
+date_format: "%-d %b, %Y"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
