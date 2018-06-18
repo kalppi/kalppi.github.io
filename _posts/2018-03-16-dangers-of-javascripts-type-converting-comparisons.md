@@ -23,7 +23,7 @@ if(user !== null) {
 }
 {% endhighlight %}
 
-It seems very basic, so what's the problem? You've forgotten that your `passwordMatches` method is asynchronous and returns a promise, and you've forgotten to use the await-keyword, so the if-statement will always evaluate to true. If you don't have good tests (well, even not-so-good tests would probaby suffice), you might not notice that you are letting anyone in with just knowing any username.
+It seems very basic, so what's the problem? You've forgotten that your `passwordMatches` method is asynchronous and returns a promise, and you've forgotten to use the `await` keyword, so the if-statement will always evaluate to true. If you don't have good tests (well, even not-so-good tests would probaby suffice), you might not notice that you are letting anyone in with just knowing any username.
 
 A lot of headache can be prevented, if you just use strict comparison:
 
@@ -31,10 +31,10 @@ A lot of headache can be prevented, if you just use strict comparison:
 if(userService.passwordMatches(user, request.password) === true) {
 {% endhighlight %}
 
-Now the returned promise is compared strictly against `true`, and you'll eventually notice the missing `await` keyword because you can't seem to be able to login. Then you can fix your code:
+Now the returned promise is compared strictly against `true`, and you'll eventually notice the missing `await` because you can't log in. Then you can fix your code:
 
 {% highlight js %}
 if(await userService.passwordMatches(user, request.password) === true) {
 {% endhighlight %}
 
-This totally didn't happen. Not to me at least.
+This totally didn't happen. No not to me.
