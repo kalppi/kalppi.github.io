@@ -9,15 +9,22 @@
 	margin: 10px 0 10px 0;
 }
 
+.post-title {
+	color: $base-color;
+}
+
 .post-content, .content {
 	margin-bottom: $spacing-unit;
 
 	p {
-		font-size: $base-font-size;
+		@include relative-font-size(1);
+		line-height: $base-line-height;
+		font-family: $base-font-family;
 	}
 
 	h2 {
 		@include relative-font-size(1.5);
+		color: darken($base-color, 20%);
 
 		@include media-query($on-laptop) {
 			@include relative-font-size(1.75);
