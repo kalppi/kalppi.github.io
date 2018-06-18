@@ -1,15 +1,16 @@
-title: jarnoluu
+title: Jarno Luukkonen @ jarnoluu
 email: luukkonen.jarno@gmail.com
 description: >-
   Programming. Sql. Linux. Design. Stuff.
 baseurl: ""
-url: ""
+url: "http://jarnoluu.com"
 excerpt_separator: <!--more-->
 markdown: kramdown
 permalink: pretty
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 menu:
   - title: Blog
     url: /
