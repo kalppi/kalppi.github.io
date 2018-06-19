@@ -49,12 +49,12 @@ Yes... I like to google alot.
   92 poe affix
   84 sää
   35 poe aura
-   28 poe unique jewel
-   28 a
-   25 poe jewel
-   23 poe unique flask
-   23 google jquery
-   22 poe poison
+  28 poe unique jewel
+  28 a
+  25 poe jewel
+  23 poe unique flask
+  23 google jquery
+  22 poe poison
 {% endhighlight %}
 
 {: #Top-10-searches-excluding-everything-poe-related}
