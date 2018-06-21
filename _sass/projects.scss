@@ -17,8 +17,10 @@
 
 .row {
 	.row {
-		> div {
-			padding-left: 0;
+		.row {
+			> div {
+				padding-left: 0;
+			}
 		}
 	}
 }
