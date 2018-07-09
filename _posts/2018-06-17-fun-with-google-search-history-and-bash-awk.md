@@ -96,7 +96,7 @@ $ 7036 stackoverflow.com
 
 {% highlight bash %}
 $ cat search-data | cut -d '|' -f1 | grep -o '[[:alpha:]]*' | awk 'length($0)>=3' | sort | uniq -c | sort -nr | head
-> 6546 poe
+$ 6546 poe
   1297 node
   1137 java
    998 the
@@ -114,7 +114,7 @@ $ cat search-data | cut -d '|' -f1 | grep -o '[[:alpha:]]*' | awk 'length($0)>=3
 
 {% highlight bash %}
 $ file=$(mktemp);wget -q https://raw.githubusercontent.com/Alir3z4/stop-words/master/english.txt -O $file && cat search-data | cut -d '|' -f1 | grep -o '[[:alpha:]\-]*'| grep -v -x -f "$file" | awk 'length($0)>=3' | sort | uniq -c | sort -nr | head
-> 6546 poe
+$ 6546 poe
   1249 node
   1137 java
    785 lol
@@ -131,7 +131,7 @@ $ file=$(mktemp);wget -q https://raw.githubusercontent.com/Alir3z4/stop-words/ma
 
 {% highlight bash %}
 $ cat search-data | cut -d '|' -f1 | grep -o '[[:alpha:]]*' | awk 'length($0)>=10' | sort | uniq -c | sort -nr | head
-> 376 javascript
+$ 376 javascript
   356 stackoverflow
   223 pakkotoisto
   205 borderlands
@@ -149,7 +149,7 @@ $ cat search-data | cut -d '|' -f1 | grep -o '[[:alpha:]]*' | awk 'length($0)>=1
 
 {% highlight bash %}
 $ file=$(mktemp);wget -q https://raw.githubusercontent.com/Alir3z4/stop-words/master/english.txt -O $file && cat search-data | cut -d '|' -f1 | grep -o '[[:alpha:]\-]*' | grep -v -x -f "$file" | awk 'NR>1{print l " " $0}{l=$1}' | sort | uniq -c | sort -nr | head
-> 307 poe unique
+$ 307 poe unique
   173 react native
   162 java spring
   160 lbs kg
@@ -167,7 +167,7 @@ $ file=$(mktemp);wget -q https://raw.githubusercontent.com/Alir3z4/stop-words/ma
 
 {% highlight bash %}
 $ cat search-data | cut -d '|' -f1 | awk '{print $0 "\n#"}'| grep -oP '[[:alpha:]\-#]*' | awk 'NR>2{print s " " l " " $0}{s=l}{l=$1}' | sort | sed 's/\# //g' | sed 's/ \#//g'| awk 'NF==3' | uniq -c| sort -nr | head
-> 159 lbs to kg
+$ 159 lbs to kg
   154 path of exile
    58 poe how much
    44 how to get
@@ -185,7 +185,7 @@ $ cat search-data | cut -d '|' -f1 | awk '{print $0 "\n#"}'| grep -oP '[[:alpha:
 
 {% highlight bash %}
 $ cat search-data | cut -d '|' -f2 | sed -r 's/([0-9]+)\.([0-9]+)\.([0-9]+) ([0-9]+)\.([0-9]+)\.([0-9]+)/\4-\5/g' | awk '{split($0, d, "-");hour=d[1];min=int((d[2]/30) + 0.5)*30; if(min==60) { hour++; min=0 };  printf("%02d.%02d\n", hour, min)}' | sort | uniq -c  | sort -nr | head
-> 2568 15.30
+$ 2568 15.30
   2464 14.30
   2461 16.00
   2460 19.00
@@ -203,7 +203,7 @@ $ cat search-data | cut -d '|' -f2 | sed -r 's/([0-9]+)\.([0-9]+)\.([0-9]+) ([0-
 
 {% highlight bash %}
 $ cat search-data | cut -d '|' -f2 | sed -r 's/([0-9]+)\.([0-9]+)\.([0-9]+) ([0-9]+)\.([0-9]+)\.([0-9]+)/\4-\5/g' | awk '{split($0, d, "-");hour=d[1];min=int((d[2]/30) + 0.5)*30; if(min==60) { hour++; min=0 };  printf("%02d.%02d\n", hour, min)}' | sort | uniq -c  | sort -n | head
-> 117 05.00
+$ 117 05.00
   118 05.30
   127 06.30
   146 06.00
