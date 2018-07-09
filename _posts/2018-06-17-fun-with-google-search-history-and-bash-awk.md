@@ -21,21 +21,21 @@ But let's see how we can search and process the history data.
 ## 1. Convert searches to easier to process format
 
 {% highlight bash %}
-> cat MyActivity.html | egrep -o 'search\?q=([^"]+)">[^>]+</a><br>[^ ]+ klo [^<]+'  | cut -d ">" -f2,4 | sed -r 's/<\/a>/|/g' | sed -r 's/ klo / /g' | sed -r 's/&quot;/"/g' > search-data
+$ cat MyActivity.html | egrep -o 'search\?q=([^"]+)">[^>]+</a><br>[^ ]+ klo [^<]+'  | cut -d ">" -f2,4 | sed -r 's/<\/a>/|/g' | sed -r 's/ klo / /g' | sed -r 's/&quot;/"/g' > search-data
 {% endhighlight %}
 
 {: #Convert-opened-urls-to-easier-to-process-format}
 ## 2. Convert opened urls to easier to process format
 {% highlight bash %}
-> cat MyActivity.html | egrep -oi 'url\?q=([^"]+)'  | cut -d '=' -f2 | cut -d '&' -f1 > url-data
+$ cat MyActivity.html | egrep -oi 'url\?q=([^"]+)'  | cut -d '=' -f2 | cut -d '&' -f1 > url-data
 {% endhighlight %}
 
 {: #How-many-searches-Ive-made}
 ## 3. How many searches I've made
 
 {% highlight bash %}
-> cat search-data | wc -l
-> 69623
+$ cat search-data | wc -l
+$ 69623
 {% endhighlight %}
 
 Yes... I like to google alot.
@@ -44,8 +44,8 @@ Yes... I like to google alot.
 ## 4. Top 10 searches
 
 {% highlight bash %}
-> cat search-data | cut -d '|' -f1 | sort | uniq -c | sort -rn | head
-> 92 poe unique
+$ cat search-data | cut -d '|' -f1 | sort | uniq -c | sort -rn | head
+$ 92 poe unique
   92 poe affix
   84 sää
   35 poe aura
@@ -61,8 +61,8 @@ Yes... I like to google alot.
 ## 5. Top 10 searches, excluding everything poe related
 
 {% highlight bash %}
-> cat search-data | cut -d '|' -f1 | grep -v 'poe' | sort | uniq -c | sort -rn | head
-> 84 sää
+$ cat search-data | cut -d '|' -f1 | grep -v 'poe' | sort | uniq -c | sort -rn | head
+$ 84 sää
   28 a
   23 google jquery
   22 maps
@@ -78,8 +78,8 @@ Yes... I like to google alot.
 ## 6. Top 10 sites
 
 {% highlight bash %}
-> cat url-data |  grep -Poi 'https?://(www\.)?(fi\.|en\.)?(m\.)?\K([^/]+)' | sort | uniq -c | sort -nr | head
-> 7036 stackoverflow.com
+$ cat url-data |  grep -Poi 'https?://(www\.)?(fi\.|en\.)?(m\.)?\K([^/]+)' | sort | uniq -c | sort -nr | head
+$ 7036 stackoverflow.com
   5173 pathofexile.gamepedia.com
   3246 wikipedia.org
   2751 reddit.com
@@ -95,7 +95,7 @@ Yes... I like to google alot.
 ## 7. Top 10 search words, 3 characters or more
 
 {% highlight bash %}
-> cat search-data | cut -d '|' -f1 | grep -o '[[:alpha:]]*' | awk 'length($0)>=3' | sort | uniq -c | sort -nr | head
+$ cat search-data | cut -d '|' -f1 | grep -o '[[:alpha:]]*' | awk 'length($0)>=3' | sort | uniq -c | sort -nr | head
 > 6546 poe
   1297 node
   1137 java
@@ -113,7 +113,7 @@ Yes... I like to google alot.
 ## 8. Top 10 search words, 3 characters or more and without stop-words
 
 {% highlight bash %}
-> file=$(mktemp);wget -q https://raw.githubusercontent.com/Alir3z4/stop-words/master/english.txt -O $file && cat search-data | cut -d '|' -f1 | grep -o '[[:alpha:]\-]*'| grep -v -x -f "$file" | awk 'length($0)>=3' | sort | uniq -c | sort -nr | head
+$ file=$(mktemp);wget -q https://raw.githubusercontent.com/Alir3z4/stop-words/master/english.txt -O $file && cat search-data | cut -d '|' -f1 | grep -o '[[:alpha:]\-]*'| grep -v -x -f "$file" | awk 'length($0)>=3' | sort | uniq -c | sort -nr | head
 > 6546 poe
   1249 node
   1137 java
@@ -130,7 +130,7 @@ Yes... I like to google alot.
 ## 9. Top 10 search words, 10 characters or more
 
 {% highlight bash %}
-> cat search-data | cut -d '|' -f1 | grep -o '[[:alpha:]]*' | awk 'length($0)>=10' | sort | uniq -c | sort -nr | head
+$ cat search-data | cut -d '|' -f1 | grep -o '[[:alpha:]]*' | awk 'length($0)>=10' | sort | uniq -c | sort -nr | head
 > 376 javascript
   356 stackoverflow
   223 pakkotoisto
@@ -148,7 +148,7 @@ Yes... I like to google alot.
 ## 10. Top 10 word pairs, without stop-words
 
 {% highlight bash %}
-> file=$(mktemp);wget -q https://raw.githubusercontent.com/Alir3z4/stop-words/master/english.txt -O $file && cat search-data | cut -d '|' -f1 | grep -o '[[:alpha:]\-]*' | grep -v -x -f "$file" | awk 'NR>1{print l " " $0}{l=$1}' | sort | uniq -c | sort -nr | head
+$ file=$(mktemp);wget -q https://raw.githubusercontent.com/Alir3z4/stop-words/master/english.txt -O $file && cat search-data | cut -d '|' -f1 | grep -o '[[:alpha:]\-]*' | grep -v -x -f "$file" | awk 'NR>1{print l " " $0}{l=$1}' | sort | uniq -c | sort -nr | head
 > 307 poe unique
   173 react native
   162 java spring
@@ -166,7 +166,7 @@ Yes... I like to google alot.
 ## 11. Top 10 word trios 
 
 {% highlight bash %}
-> cat search-data | cut -d '|' -f1 | awk '{print $0 "\n#"}'| grep -oP '[[:alpha:]\-#]*' | awk 'NR>2{print s " " l " " $0}{s=l}{l=$1}' | sort | sed 's/\# //g' | sed 's/ \#//g'| awk 'NF==3' | uniq -c| sort -nr | head
+$ cat search-data | cut -d '|' -f1 | awk '{print $0 "\n#"}'| grep -oP '[[:alpha:]\-#]*' | awk 'NR>2{print s " " l " " $0}{s=l}{l=$1}' | sort | sed 's/\# //g' | sed 's/ \#//g'| awk 'NF==3' | uniq -c| sort -nr | head
 > 159 lbs to kg
   154 path of exile
    58 poe how much
@@ -184,7 +184,7 @@ Yes... I like to google alot.
 ## 12. Top 10 search times, rounded to nearest 30 minutes
 
 {% highlight bash %}
-> cat search-data | cut -d '|' -f2 | sed -r 's/([0-9]+)\.([0-9]+)\.([0-9]+) ([0-9]+)\.([0-9]+)\.([0-9]+)/\4-\5/g' | awk '{split($0, d, "-");hour=d[1];min=int((d[2]/30) + 0.5)*30; if(min==60) { hour++; min=0 };  printf("%02d.%02d\n", hour, min)}' | sort | uniq -c  | sort -nr | head
+$ cat search-data | cut -d '|' -f2 | sed -r 's/([0-9]+)\.([0-9]+)\.([0-9]+) ([0-9]+)\.([0-9]+)\.([0-9]+)/\4-\5/g' | awk '{split($0, d, "-");hour=d[1];min=int((d[2]/30) + 0.5)*30; if(min==60) { hour++; min=0 };  printf("%02d.%02d\n", hour, min)}' | sort | uniq -c  | sort -nr | head
 > 2568 15.30
   2464 14.30
   2461 16.00
@@ -202,7 +202,7 @@ Yes... I like to google alot.
 ## 13. Bottom 10 search times, rounded to nearest 30 minutes
 
 {% highlight bash %}
-> cat search-data | cut -d '|' -f2 | sed -r 's/([0-9]+)\.([0-9]+)\.([0-9]+) ([0-9]+)\.([0-9]+)\.([0-9]+)/\4-\5/g' | awk '{split($0, d, "-");hour=d[1];min=int((d[2]/30) + 0.5)*30; if(min==60) { hour++; min=0 };  printf("%02d.%02d\n", hour, min)}' | sort | uniq -c  | sort -n | head
+$ cat search-data | cut -d '|' -f2 | sed -r 's/([0-9]+)\.([0-9]+)\.([0-9]+) ([0-9]+)\.([0-9]+)\.([0-9]+)/\4-\5/g' | awk '{split($0, d, "-");hour=d[1];min=int((d[2]/30) + 0.5)*30; if(min==60) { hour++; min=0 };  printf("%02d.%02d\n", hour, min)}' | sort | uniq -c  | sort -n | head
 > 117 05.00
   118 05.30
   127 06.30
@@ -219,8 +219,8 @@ Yes... I like to google alot.
 ## 14. Top 10 days with most searches
 
 {% highlight bash %}
-> cat search-data | cut -d '|' -f2 | cut -d ' ' -f1 | sort | uniq -c | sort -nr | head
-> 289 20.1.2018
+$ cat search-data | cut -d '|' -f2 | cut -d ' ' -f1 | sort | uniq -c | sort -nr | head
+$ 289 20.1.2018
   276 12.3.2018
   224 25.10.2014
   223 27.9.2016
@@ -236,8 +236,8 @@ Yes... I like to google alot.
 ## 15. Searches by year
 
 {% highlight bash %}
-> cat search-data | cut -d '|' -f2 | cut -d '.' -f3 | cut -d ' ' -f1 | sort | uniq -c
->  5298 2013
+$ cat search-data | cut -d '|' -f2 | cut -d '.' -f3 | cut -d ' ' -f1 | sort | uniq -c
+$  5298 2013
    9545 2014
   11545 2015
   17074 2016
@@ -249,8 +249,8 @@ Yes... I like to google alot.
 ## 16. Searches by month
 
 {% highlight bash %}
-> cat search-data | cut -d '|' -f2 | cut -d '.' -f2 | sort | uniq -c | sort  -k2n
-> 7238 1
+$ cat search-data | cut -d '|' -f2 | cut -d '.' -f2 | sort | uniq -c | sort  -k2n
+$ 7238 1
   5244 2
   6161 3
   6481 4
@@ -268,8 +268,8 @@ Yes... I like to google alot.
 ## 17. Searches by month as percents
 
 {% highlight bash %}
-> cat search-data | cut -d '|' -f2 | cut -d '.' -f2 | sort | uniq -c | sort  -k2n  | awk 'BEGIN {t=0} {v[NR]=$1;t+=$1} END {for(i=1;i<=NR;i++) {printf("%s %.1f%\n", i,  (v[i] / t)*100)}}'
-> 1 10.4%
+$ cat search-data | cut -d '|' -f2 | cut -d '.' -f2 | sort | uniq -c | sort  -k2n  | awk 'BEGIN {t=0} {v[NR]=$1;t+=$1} END {for(i=1;i<=NR;i++) {printf("%s %.1f%\n", i,  (v[i] / t)*100)}}'
+$ 1 10.4%
   2 7.5%
   3 8.8%
   4 9.3%
