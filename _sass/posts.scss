@@ -1,4 +1,3 @@
-
 .post-meta {
 	.tags {
 		display: block;
@@ -13,7 +12,8 @@
 	color: $base-color;
 }
 
-.post-content, .content {
+.post-content,
+.content {
 	margin-bottom: $spacing-unit;
 
 	p {
@@ -23,8 +23,9 @@
 	}
 
 	h2 {
-		@include relative-font-size(1.5);
+		@include relative-font-size(1.6);
 		color: darken($base-color, 20%);
+		margin-top: 1em;
 
 		@include media-query($on-laptop) {
 			@include relative-font-size(1.75);
@@ -34,15 +35,18 @@
 	}
 
 	h3 {
-		@include relative-font-size(1.625);
+		@include relative-font-size(1.1);
+		color: darken($base-color, 20%);
+		font-weight: bold;
 
 		@include media-query($on-laptop) {
-			@include relative-font-size(1.375);
+			@include relative-font-size(1.2);
 		}
 	}
 
 	h4 {
-		@include relative-font-size(1.25);
+		@include relative-font-size(1);
+		color: darken($base-color, 20%);
 
 		@include media-query($on-laptop) {
 			@include relative-font-size(1.125);
@@ -59,10 +63,9 @@
 	@include relative-font-size(1.7);
 }
 
-
 .page-content {
-  padding: $spacing-unit 0;
-  flex: 1;
+	padding: $spacing-unit 0;
+	flex: 1;
 }
 
 .page-heading {
@@ -116,7 +119,8 @@ pre {
 		@include relative-font-size(1.2);
 	}
 
-	ul, ol {
+	ul,
+	ol {
 		padding: 0;
 		list-style-position: inside;
 
