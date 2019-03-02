@@ -13,15 +13,20 @@ layout: default
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-lg-6">
+							{% include_relative projects/logger.html %}
+						</div>
+
+							<div class="col-lg-6">
+								{% include_relative projects/gps.html %}
+							</div>
+						
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
 							{% include_relative projects/friends.html %}
 						</div>
 						<div class="col-lg-6">
 							{% include_relative projects/shapejs.html %}
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							{% include_relative projects/gps.html %}
 						</div>
 					</div>
 					<div class="row">
