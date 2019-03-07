@@ -1,32 +1,33 @@
 @charset "utf-8";
 
-$base-color: #5DACDD;
+$base-color: #5dacdd;
 
-$base-font-family: "Open Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$base-font-size:   17px !default;
+$base-font-family: 'Open Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+	'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !default;
+$base-font-size: 17px !default;
 $base-font-weight: 400 !default;
-$small-font-size:  $base-font-size * 0.875 !default;
+$small-font-size: $base-font-size * 0.875 !default;
 $base-line-height: 1.7 !default;
 
-$spacing-unit:     30px !default;
+$spacing-unit: 30px !default;
 
-$text-color:       #111 !default;
+$text-color: #111 !default;
 $background-color: #fdfdfd !default;
-$brand-color:      #2a7ae2 !default;
+$brand-color: #2a7ae2 !default;
 
-$grey-color:       #828282 !default;
+$grey-color: #828282 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
-$grey-color-dark:  darken($grey-color, 25%) !default;
+$grey-color-dark: darken($grey-color, 25%) !default;
 
 $table-text-align: left !default;
 
 // Width of the content area
-$content-width:    100% !default;
+$content-width: 100% !default;
 
-$on-palm:          600px !default;
-$on-laptop:        800px !default;
+$on-palm: 600px !default;
+$on-laptop: 800px !default;
 
-$medium-device:	   768px;
+$medium-device: 768px;
 
 // Use media queries like this:
 // @include media-query($on-palm) {
@@ -36,9 +37,9 @@ $medium-device:	   768px;
 //   }
 // }
 @mixin media-query($device) {
-  @media screen and (max-width: $device) {
-    @content;
-  }
+	@media screen and (max-width: $device) {
+		@content;
+	}
 }
 
 @mixin relative-font-size($ratio) {
@@ -50,13 +51,7 @@ $medium-device:	   768px;
 }
 
 // Import partials.
-@import
-  "syntax-highlighting",
-  "posts",
-  "designs",
-  "projects",
-  "responsive"
-;
+@import 'syntax-highlighting', 'posts', 'designs', 'projects', 'responsive';
 
 video {
 	width: 100%;
@@ -64,16 +59,17 @@ video {
 }
 
 main {
-  display: block;
+	display: block;
 }
 
-body, .container-fluid {
+body,
+.container-fluid {
 	width: 100%;
 }
 
 h1 {
 	margin-bottom: 20px;
-	font-family: "Crete Round";
+	font-family: 'Crete Round';
 	color: darken($base-color, 25%);
 	border-bottom: 2px solid darken($base-color, 25%);
 	padding-bottom: 5px;
@@ -92,7 +88,7 @@ h3 {
 
 	a {
 		@include relative-font-size(2);
-		font-family: "Source Sans Pro","Times New Roman", Times, serif;
+		font-family: 'Source Sans Pro', 'Times New Roman', Times, serif;
 		text-align: right;
 		display: block;
 
@@ -121,119 +117,118 @@ h3 {
 }
 
 #left {
-	background: #526B6F url(/assets/images/bg.jpg) right top no-repeat;
+	background: #526b6f url(/assets/images/bg.jpg) right top no-repeat;
 	position: fixed;
 	min-height: 2000px;
-	border-top: 5px solid #526B6F;
-}
+	border-top: 5px solid #526b6f;
 
-#portrait {
-	width: 150px;
-	height: 150px;
-	background: white;
-	float: right;
-	border-radius: 50%;
-	background: url(/assets/images/me.png);
-	clear: both;
-	margin-bottom: 20px;
-}
+	#left-content {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
 
-#side {
-	float: right;
-	clear: both;
+		#main-navbar {
+			padding: 0;
+			margin: 0px 0 20px 0;
 
-	#contact {
-		width: 100%;
-		border: 0;
-		margin-top: 20px;
+			ul {
+				list-style-type: none;
+				padding: 0;
+				margin: 5px 0 0 0;
 
-		td {
-			text-align: center;
-			padding: 2px 0;
-			border: 0;
+				li {
+					display: inline-block;
+					margin-top: 10px;
 
-			.dummy {
-				display: none;
-			}
+					a {
+						@include relative-font-size(1);
+						background: $base-color;
+						margin-right: 5px;
+						color: lighten($base-color, 40%);
+						text-decoration: none;
+						padding: 5px 10px;
+						text-transform: lowercase;
 
-			&, a {
-				@include relative-font-size(1.2);
-				color: darken($base-color, 10%);
-				letter-spacing: -0.5px;
-				font-family: "Source Sans Pro";
-			}
+						span {
+							font-size: 8pt;
+						}
+					}
 
-			&:first-child {
-				text-align: right;
-				padding-right: 5px;
-			}
-
-			i {
-				@include relative-font-size(1.5);
-				position: relative;
-				top: 2px;
+					&.active a {
+						font-weight: bold;
+						color: white;
+						margin-top: 0;
+						padding: 10px;
+						background: darken($base-color, 20%);
+					}
+				}
 			}
 		}
-	}
 
-	#info {
-		@include relative-font-size(1.1);
-		font-family: "Source Sans Pro", "Times New Roman", Times, serif;
-		font-style: italic;
-		margin: 10px 10px 10px 0;
-		text-align: right;
-		max-width: 300px;
-		float: right;
-		color: black;
-
-		p {
-			line-height: 1.3;
+		#portrait {
+			width: 150px;
+			height: 150px;
+			background: white;
+			border-radius: 50%;
+			background: url(/assets/images/me.png);
+			margin-bottom: 20px;
 		}
-	 }
-}
 
-#main-navbar {
-	padding: 0;
-	margin: 0px 0 20px 0;
-	float: right;
+		#side {
+			#contact {
+				width: 100%;
+				border: 0;
+				margin-top: 20px;
 
-	ul {
-		list-style-type: none;
-		padding: 0;
-		margin: 5px 0 0 0;
+				td {
+					text-align: center;
+					padding: 2px 0;
+					border: 0;
 
-		li {
-			display: inline-block;
-			margin-top: 10px;
+					.dummy {
+						display: none;
+					}
 
-			a {
-				@include relative-font-size(1);
-				background: $base-color;
-				margin-right: 5px;
-				color: lighten($base-color, 40%);
-				text-decoration: none;
-				padding: 5px 10px;
-				text-transform: lowercase;
+					&,
+					a {
+						@include relative-font-size(1.2);
+						color: darken($base-color, 10%);
+						letter-spacing: -0.5px;
+						font-family: 'Source Sans Pro';
+					}
 
-				span {
-					font-size: 8pt;
+					&:first-child {
+						text-align: right;
+						padding-right: 5px;
+					}
+
+					i {
+						@include relative-font-size(1.5);
+						position: relative;
+						top: 2px;
+					}
 				}
 			}
 
-			&.active a {
-				font-weight: bold;
-				color: white;
-				margin-top: 0;
-				padding: 10px;
-				background: darken($base-color, 20%);
+			#info {
+				@include relative-font-size(1.1);
+				font-family: 'Source Sans Pro', 'Times New Roman', Times, serif;
+				font-style: italic;
+				margin: 10px 10px 10px 0;
+				text-align: right;
+				max-width: 300px;
+				float: right;
+				color: black;
+
+				p {
+					line-height: 1.3;
+				}
 			}
 		}
 	}
 }
 
 #index {
-	apadding: 0;
-
 	ul {
 		margin: 0;
 		padding: 0;

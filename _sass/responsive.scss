@@ -1,27 +1,27 @@
 @include media-query($medium-device) {
-	#left-content {
-		width: 300px;
-		margin: auto;
+	#left {
+		#left-content {
+			align-items: center !important;
 
-		#main-navbar {
-			margin: auto;
-			float: none;
-			width: 200px;
-		}
-
-		#portrait {
-			float: none;
-			margin: 15px auto 10px auto;
-		}
-
-		.jarnoluu {
-			a {
-				text-align: center;
+			#main-navbar {
+				margin: auto;
+				float: none;
 			}
-		}
 
-		#info {
-			text-align: center !important;
+			#portrait {
+				float: none;
+				margin: 15px auto 10px auto;
+			}
+
+			.jarnoluu {
+				a {
+					text-align: center;
+				}
+			}
+
+			#info {
+				text-align: center !important;
+			}
 		}
 	}
 
@@ -47,7 +47,6 @@
 	}
 }
 
-
 @include media-query(1100px) {
 	.jarnoluu {
 		strong {
@@ -64,7 +63,8 @@
 	#side {
 		#contact {
 			td {
-				&, a {
+				&,
+				a {
 					@include relative-font-size-important(1);
 				}
 
@@ -100,7 +100,8 @@
 	#side {
 		#contact {
 			td {
-				&, a {
+				&,
+				a {
 					@include relative-font-size-important(0.9);
 				}
 
