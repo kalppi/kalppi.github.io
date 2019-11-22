@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  'Querying hierarchical menu with Postgresql'
+title:  'Querying a hierarchical menu with Postgresql'
 date:   2019-09-12 12:00:00 +0300
-tags: [sql, postgresql]
+tags: [sql, psql, postgresql]
 ---
 
 How to get each menu item's ancestors and descendants, and also order the items.
@@ -11,7 +11,7 @@ How to get each menu item's ancestors and descendants, and also order the items.
 
 ## Hierarchical menu
 
-First, have a table. Every item in the menu needs an id, text to display, parent item's id, and an order number relative for all the other items under same parent.
+First, have a table. Every item in the menu needs an id, text to display, parent item's id, and an order number relative for all the other items under the same parent.
 
 {% highlight sql %}
 CREATE TABLE example_menu (
@@ -22,7 +22,7 @@ CREATE TABLE example_menu (
 );
 {% endhighlight %}
 
-Then, let's add some data.
+Then, let's add some test data.
 
 {% highlight sql %}
 INSERT INTO example_menu (title, parent_id, "order") VALUES
