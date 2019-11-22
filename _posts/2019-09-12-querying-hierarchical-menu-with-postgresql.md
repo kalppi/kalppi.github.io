@@ -2,14 +2,12 @@
 layout: post
 title:  'Querying a hierarchical menu with Postgresql'
 date:   2019-09-12 12:00:00 +0300
-tags: [sql, psql, postgresql]
+tags: [sql, cte, psql, postgresql]
 ---
 
-How to get each menu item's ancestors and descendants, and also order the items.
+How to use recursive CTE's (Common Table Expressions) to get each menu item's ancestors and descendants, and also order the items.
 
 <!--more-->
-
-## Hierarchical menu
 
 First, have a table. Every item in the menu needs an id, text to display, parent item's id, and an order number relative for all the other items under the same parent.
 
@@ -54,7 +52,7 @@ INSERT INTO example_menu (title, parent_id, "order") VALUES
 (10 rows)
 {% endhighlight %}
 
-Next, let's query. There might be a cleaner way to get the data, but this is one way.
+Next, let's query. There might be a cleaner way to do this, but this is one way. The query can be simplified quite a lot if you don't care to know the descendants, but knowing them can be very useful for example in a case when you want to mark all the parent items when you only know the child item's id.
 
 {% highlight sql %}
 
