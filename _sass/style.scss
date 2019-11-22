@@ -228,6 +228,17 @@ h3 {
 	}
 }
 
+#on-error {
+	@include relative-font-size(0.9);
+	font-family: 'MS Sans Serif', 'Lucida Console', monospace;
+	padding: 3px;
+	margin: 10px 0;
+	color: blue;
+	text-align: right;
+	float: right;
+	background: yellow;
+}
+
 #index {
 	ul {
 		margin: 0;

@@ -2,8 +2,8 @@ title: Jarno Luukkonen @ jarnoluu
 email: luukkonen.jarno@gmail.com
 description: >-
   Programming. Sql. Linux. Design. Stuff.
-baseurl: ""
-url: "http://jarnoluu.com"
+baseurl: ''
+url: 'http://jarnoluu.com'
 excerpt_separator: <!--more-->
 markdown: kramdown
 permalink: pretty
@@ -21,9 +21,8 @@ menu:
   - title: Designs
     url: /designs/
     icon: pencil
-date_format: "%-d %b, %Y"
-content_separator: "<!--separator-->"
-
+date_format: '%-d %b, %Y'
+content_separator: '<!--separator-->'
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.

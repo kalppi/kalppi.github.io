@@ -52,7 +52,7 @@ INSERT INTO example_menu (title, parent_id, "order") VALUES
 (10 rows)
 {% endhighlight %}
 
-Next, let's query. There might be a cleaner way to do this, but this is one way. The query can be simplified quite a lot if you don't care to know the descendants, but knowing them can be very useful for example in a case when you want to mark all the parent items when you only know the child item's id.
+Next, let's query. There might be a cleaner way to do this, but this is one way. The query can be simplified quite a lot if you don't care to know the descendants, but knowing them can be very useful for example in a case when you want to mark all the parent items when you only know the child item's id..
 
 {% highlight sql %}
 

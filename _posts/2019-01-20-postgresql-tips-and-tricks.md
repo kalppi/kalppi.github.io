@@ -99,3 +99,9 @@ SELECT pg_get_serial_sequence('table_name', 'sequence_field_name');
 {% highlight sql %}
 SELECT setval('sequence_name', (SELECT MAX(sequence_field_name) FROM table_name) + 1);
 {% endhighlight %}
+
+## Show NULL's
+
+{% highlight sql %}
+\pset null (NULL)
+{% endhighlight %}
