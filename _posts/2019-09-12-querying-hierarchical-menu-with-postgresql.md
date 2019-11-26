@@ -9,7 +9,7 @@ How to use recursive CTE's (Common Table Expressions) to get each menu item's an
 
 <!--more-->
 
-First, have a table. Every item in the menu needs an id, text to display, parent item's id, and an order number relative for all the other items under the same parent.
+First, have a table. Every item in the menu needs an id, text to display, parent item's id, and an order number relative to all the other items under the same parent.
 
 {% highlight sql %}
 CREATE TABLE example_menu (
@@ -52,7 +52,9 @@ INSERT INTO example_menu (title, parent_id, "order") VALUES
 (10 rows)
 {% endhighlight %}
 
-Next, let's query. There might be a cleaner way to do this, but this is one way. The query can be simplified quite a lot if you don't care to know the descendants, but knowing them can be very useful for example in a case when you want to mark all the parent items when you only know the child item's id..
+Next, let's query. There might be a cleaner and faster way to do this, and feel free to tell me if you figure it out.
+
+The query can be simplified quite a lot, depending what data you need. For example, `roots` and `descendants` CTE's can be completely removed if you don't need to know the descendants, but knowing them can be very useful in a case when you want to mark all the parent items when you only know the child item's id.
 
 {% highlight sql %}
 
